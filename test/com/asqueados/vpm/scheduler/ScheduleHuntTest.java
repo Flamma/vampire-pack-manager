@@ -24,8 +24,8 @@ package com.asqueados.vpm.scheduler;
 import com.asqueados.vpm.entities.*;
 import com.asqueados.vpm.exceptions.*;
 import com.asqueados.vpm.tests.SchedulerTest;
-import com.asqueados.vpm.xml.XmlReader;
-import com.asqueados.vpm.xml.XmlWriter;
+import com.asqueados.vpm.xml.PersonageXmlReader;
+import com.asqueados.vpm.xml.PersonageXmlWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -84,7 +84,7 @@ public class ScheduleHuntTest {
         
         String path = "data/chars/sample.xml";
 
-        XmlReader reader = new XmlReader(path);
+        PersonageXmlReader reader = new PersonageXmlReader(path);
 
         Personage character = reader.readCharacter();
         
@@ -141,7 +141,7 @@ public class ScheduleHuntTest {
 
         String outPath = "output/chars/out.xml";
 
-        XmlWriter writer = new XmlWriter(outPath);
+        PersonageXmlWriter writer = new PersonageXmlWriter(outPath);
 
         writer.writeCharacter(character, null);
         writer.fileWrite();

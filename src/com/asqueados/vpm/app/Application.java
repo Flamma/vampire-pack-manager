@@ -22,6 +22,8 @@
 package com.asqueados.vpm.app;
 
 import com.asqueados.vpm.configuration.Configuration;
+import com.asqueados.vpm.configuration.ConfigurationFactory;
+import com.asqueados.vpm.configuration.PropertiesConfiguration;
 import com.asqueados.vpm.view.color.ColorDescriptor;
 import com.asqueados.vpm.view.color.ColorDescriptorFactory;
 import com.asqueados.vpm.view.i18n.Translator;
@@ -36,6 +38,7 @@ import com.asqueados.vpm.view.text.Descriptor;
  */
 public class Application {
     public static Configuration configuration;
+    public static Configuration dataConfiguration;
     public static Translator translator;
     public static Descriptor text;
     public static ColorDescriptor color;
@@ -43,7 +46,11 @@ public class Application {
     public static void init() {
         translator = TranslatorFactory.getTranslator();
         color = ColorDescriptorFactory.getColorDescriptor();
-        // TODO: Create configurators, etc...
+        configuration = ConfigurationFactory.createConfiguration("config.properties");
+        dataConfiguration = ConfigurationFactory.createConfiguration(
+                configuration.getOption("dataConfig"),
+                configuration.getOption("dataConfigType")
+        );
 
     }
     

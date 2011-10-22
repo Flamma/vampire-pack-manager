@@ -21,6 +21,7 @@
 
 package com.asqueados.vpm.entities;
 
+import com.asqueados.vpm.app.Application;
 import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -48,6 +49,7 @@ public class ArchetypeFactoryTest {
 
     @Before
     public void setUp() {
+        Application.init();
     }
 
     @After

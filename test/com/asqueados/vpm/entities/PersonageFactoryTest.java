@@ -21,6 +21,7 @@
 
 package com.asqueados.vpm.entities;
 
+import com.asqueados.vpm.app.Application;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,21 +48,22 @@ public class PersonageFactoryTest {
 
     @Before
     public void setUp() {
+        Application.init();
     }
 
     @After
     public void tearDown() {
     }
 
-    /**
-     * Test of createCharacter method, of class PersonageFactory.
+    /**"
+     * Test of createPersonage method, of class PersonageFactory.
      */
     @Test
-    public void createCharacter() throws Exception {
+    public void createPersonage() throws Exception {
         System.out.println("TEST PersonageFactory");  
-        System.out.println("createCharacter");
+        System.out.println("createPersonage");
 
-        Personage result = PersonageFactory.createCharacter(3, 10);
+        Personage result = PersonageFactory.createPersonage(3, 10);
         assertNotNull(result);
         System.out.println(result);
 

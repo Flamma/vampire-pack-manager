@@ -22,7 +22,7 @@
 package com.asqueados.vpm.tests;
 
 import com.asqueados.vpm.entities.Personage;
-import com.asqueados.vpm.xml.XmlReader;
+import com.asqueados.vpm.xml.PersonageXmlReader;
 import com.asqueados.vpm.xml.XmlReaderException;
 
 /**
@@ -35,7 +35,7 @@ public class XmlReadTest {
     public static void main(String args[]) throws XmlReaderException{
         String path = "data/chars/sample.xml";
         
-        XmlReader reader = new XmlReader(path);
+        PersonageXmlReader reader = new PersonageXmlReader(path);
         
         Personage character = reader.readCharacter();
         

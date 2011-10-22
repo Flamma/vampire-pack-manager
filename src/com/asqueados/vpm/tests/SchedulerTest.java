@@ -28,9 +28,9 @@ import com.asqueados.vpm.scheduler.Scheduler;
 import com.asqueados.vpm.entities.Personage;
 import com.asqueados.vpm.entities.Task;
 import com.asqueados.vpm.entities.TaskHunt;
-import com.asqueados.vpm.xml.XmlReader;
+import com.asqueados.vpm.xml.PersonageXmlReader;
 import com.asqueados.vpm.xml.XmlReaderException;
-import com.asqueados.vpm.xml.XmlWriter;
+import com.asqueados.vpm.xml.PersonageXmlWriter;
 import com.asqueados.vpm.xml.XmlWriterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +48,7 @@ public class SchedulerTest {
         
         String path = "data/chars/sample.xml";
 
-        XmlReader reader = new XmlReader(path);
+        PersonageXmlReader reader = new PersonageXmlReader(path);
 
         Personage character = reader.readCharacter();
         
@@ -91,7 +91,7 @@ public class SchedulerTest {
 
         String outPath = "output/chars/out.xml";
 
-        XmlWriter writer = new XmlWriter(outPath);
+        PersonageXmlWriter writer = new PersonageXmlWriter(outPath);
 
         writer.writeCharacter(character, null);
         writer.fileWrite();

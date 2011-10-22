@@ -21,14 +21,12 @@
 
 package com.asqueados.vpm.entities;
 
-import com.asqueados.vpm.configuration.Configuration;
+import com.asqueados.vpm.app.Application;
 import com.asqueados.vpm.exceptions.UnableToCreateArchetypeException;
-import com.asqueados.vpm.xml.XmlReader;
+import com.asqueados.vpm.xml.PersonageXmlReader;
 import com.asqueados.vpm.xml.XmlReaderException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,7 +38,7 @@ public class ArchetypeFactory {
     private static String archetypesFile;
 
     private static void loadProperties() {
-        archetypesFile = Configuration.getOption("archetypesFile");
+        archetypesFile = Application.dataConfiguration.getOption("archetypesFile");
     }
     
     private static String getArchetypesFile() {
@@ -53,7 +51,7 @@ public class ArchetypeFactory {
     public static Map<String, Archetype> getArchetypesMap() throws UnableToCreateArchetypeException {
         Map<String, Archetype> archetypes=null;
         try {
-            XmlReader reader = new XmlReader(getArchetypesFile());
+            PersonageXmlReader reader = new PersonageXmlReader(getArchetypesFile());
 
             archetypes = reader.readArchetypes();
         } catch (XmlReaderException ex) {

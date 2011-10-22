@@ -35,7 +35,7 @@ import java.util.logging.Logger;
 public class PersonageCreationTest {
     public static void main(String args[]) {
         try {
-            Personage character = PersonageFactory.createCharacter();
+            Personage character = PersonageFactory.createPersonage();
             
             System.out.println(character);
             

@@ -21,11 +21,12 @@
 
 package com.asqueados.vpm.entities;
 
-import com.asqueados.vpm.configuration.Configuration;
+import com.asqueados.vpm.app.Application;
+import com.asqueados.vpm.configuration.PropertiesConfiguration;
 import com.asqueados.vpm.exceptions.UnableToCreateArchetypeException;
 import com.asqueados.vpm.exceptions.UnableToCreatePersonageException;
 import com.asqueados.vpm.view.TraitTypes;
-import com.asqueados.vpm.xml.XmlReader;
+import com.asqueados.vpm.xml.PersonageXmlReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -42,8 +43,8 @@ public class PersonageFactory {
     private static String templatesPath;
     
     private static void loadProperties(){
-        defaultTemplateFile = Configuration.getOption("defaultCharacterTemplate");
-        templatesPath = Configuration.getOption("templatesPath");
+        defaultTemplateFile = Application.dataConfiguration.getOption("defaultCharacterTemplate");
+        templatesPath = Application.dataConfiguration.getOption("templatesPath");
     }
     
     private static String getDefaultTemplateFile() {
@@ -66,11 +67,24 @@ public class PersonageFactory {
         return archetypes.get(elected);
     }    
     
-    public static Personage createCharacter() throws UnableToCreatePersonageException {
-        return createCharacter(null);
+    /**
+     * Creates a character with the default template
+     * 
+     * @return character from default template
+     * @throws com.asqueados.vpm.exceptions.UnableToCreatePersonageException
+     */
+    public static Personage createPersonage() throws UnableToCreatePersonageException {
+        return createPersonage(null);
     }
 
-    public static Personage createCharacter(String template) throws UnableToCreatePersonageException {
+    /**
+     * Creates a character with the specified template
+     * 
+     * @param template name of the character template
+     * @return a character with the specified template
+     * @throws com.asqueados.vpm.exceptions.UnableToCreatePersonageException
+     */
+    public static Personage createPersonage(String template) throws UnableToCreatePersonageException {
         try {
             String filePath = null;
 
@@ -81,7 +95,7 @@ public class PersonageFactory {
                 filePath = dirPath + '/' + template + "Character.xml";
             }
 
-            XmlReader reader = new XmlReader(filePath);
+            PersonageXmlReader reader = new PersonageXmlReader(filePath);
             Personage character = reader.readCharacter();
 
             Archetype archetype = getRandomArchetype();
@@ -127,10 +141,21 @@ public class PersonageFactory {
         }        
     }
 
-    public static Personage createCharacter(String template, int attPoints
+    /**
+     * Creates a character with the specified template. Then, randomly distribute 
+     * points among traits.
+     * 
+     * @param template name of the character template
+     * @param attPoints number of points to be distributed among attribute traits
+     * @param skillPoints number of points to be distributed among skill traits
+     * 
+     * @return character
+     * @throws com.asqueados.vpm.exceptions.UnableToCreatePersonageException
+     */
+    public static Personage createPersonage(String template, int attPoints
             , int skillPoints) throws UnableToCreatePersonageException {
         
-        Personage character = createCharacter(template);
+        Personage character = createPersonage(template);
         
         // TODO: Add trait if doesn't exist
         // Increase random attributes
@@ -171,9 +196,19 @@ public class PersonageFactory {
         return character;
         
     }
-    
-    public static Personage createCharacter(int attPoints, int skillPoints) 
+
+    /**
+     * Creates a character with the default template. Then, randomly distribute 
+     * points among traits.
+     * 
+     * @param attPoints number of points to be distributed among attribute traits
+     * @param skillPoints number of points to be distributed among skill traits
+     * 
+     * @return character
+     * @throws com.asqueados.vpm.exceptions.UnableToCreatePersonageException
+     */    
+    public static Personage createPersonage(int attPoints, int skillPoints) 
             throws UnableToCreatePersonageException {
-        return createCharacter(null, attPoints, skillPoints);
+        return createPersonage(null, attPoints, skillPoints);
     }
 }

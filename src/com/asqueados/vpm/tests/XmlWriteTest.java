@@ -22,7 +22,7 @@
 package com.asqueados.vpm.tests;
 
 import com.asqueados.vpm.entities.Trait;
-import com.asqueados.vpm.xml.XmlWriter;
+import com.asqueados.vpm.xml.PersonageXmlWriter;
 import com.asqueados.vpm.xml.XmlWriterException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class XmlWriteTest {
     public static void main(String args[]) throws XmlWriterException {
         String path = "output/chars/sample.xml";
         
-        XmlWriter writer = new XmlWriter(path);
+        PersonageXmlWriter writer = new PersonageXmlWriter(path);
         
         List<Trait> traits = new ArrayList<Trait>();
         

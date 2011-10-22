@@ -21,8 +21,8 @@
 
 package com.asqueados.vpm.entities;
 
-import com.asqueados.vpm.xml.XmlReader;
-import com.asqueados.vpm.xml.XmlWriter;
+import com.asqueados.vpm.xml.PersonageXmlReader;
+import com.asqueados.vpm.xml.PersonageXmlWriter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -72,7 +72,7 @@ public class HuntTest {
         
         String path = "data/chars/sample.xml";
 
-        XmlReader reader = new XmlReader(path);
+        PersonageXmlReader reader = new PersonageXmlReader(path);
         assertNotNull(reader);
 
         Personage character = reader.readCharacter();
@@ -87,7 +87,7 @@ public class HuntTest {
 
         String outPath = "output/chars/out.xml";
 
-        XmlWriter writer = new XmlWriter(outPath);
+        PersonageXmlWriter writer = new PersonageXmlWriter(outPath);
         assertNotNull(writer);
 
         writer.writeCharacter(character, null);

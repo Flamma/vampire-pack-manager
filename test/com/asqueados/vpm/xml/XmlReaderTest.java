@@ -63,14 +63,14 @@ public class XmlReaderTest {
     }
 
     /**
-     * Test of readCharacter method, of class XmlReader.
+     * Test of readCharacter method, of class PersonageXmlReader.
      */
     @Test
     public void readCharacter() throws XmlReaderException {
         System.out.println(getIntro());
         System.out.println("readCharacter");
         
-        XmlReader instance = new XmlReader(characterPath);
+        PersonageXmlReader instance = new PersonageXmlReader(characterPath);
         Personage result = instance.readCharacter();
         assertNotNull(result);
         System.out.println(result);
@@ -79,14 +79,14 @@ public class XmlReaderTest {
 
 
     /**
-     * Test of readArchetypes method, of class XmlReader.
+     * Test of readArchetypes method, of class PersonageXmlReader.
      */
     @Test
     public void readArchetypes() throws XmlReaderException {
         System.out.println(getIntro());
         System.out.println("readArchetypes");
         
-        XmlReader instance = new XmlReader(archetypesPath);
+        PersonageXmlReader instance = new PersonageXmlReader(archetypesPath);
         Map<String, Archetype> result = instance.readArchetypes();
         assertNotNull(result);
         assertTrue("Number of archetypes greater than 0", result.size()>0);

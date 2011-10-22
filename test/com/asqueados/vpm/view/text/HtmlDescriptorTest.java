@@ -24,7 +24,7 @@ package com.asqueados.vpm.view.text;
 import com.asqueados.vpm.app.Application;
 import com.asqueados.vpm.entities.Personage;
 import com.asqueados.vpm.entities.Trait;
-import com.asqueados.vpm.xml.XmlReader;
+import com.asqueados.vpm.xml.PersonageXmlReader;
 import com.asqueados.vpm.xml.XmlReaderException;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -73,7 +73,7 @@ public class HtmlDescriptorTest {
     
     private Personage getPersonage() throws XmlReaderException {
         String path = "data/chars/sample.xml";
-        XmlReader reader = new XmlReader(path);
+        PersonageXmlReader reader = new PersonageXmlReader(path);
         Personage character = reader.readCharacter();
         
         return character;

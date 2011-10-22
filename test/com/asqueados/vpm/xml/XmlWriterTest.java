@@ -104,7 +104,7 @@ public class XmlWriterTest {
     }
 
     /**
-     * Test of writeTrait method, of class XmlWriter.
+     * Test of writeTrait method, of class PersonageXmlWriter.
      */
     @Test
     public void writeTrait() throws XmlWriterException {
@@ -113,7 +113,7 @@ public class XmlWriterTest {
         
         List<Trait> traits = getTraits();
 
-        XmlWriter instance = new XmlWriter(basePath+"traits.xml");
+        PersonageXmlWriter instance = new PersonageXmlWriter(basePath+"traits.xml");
         
         for(Trait trait: traits) {
             instance.writeTrait(trait, null);
@@ -122,7 +122,7 @@ public class XmlWriterTest {
     }
 
     /**
-     * Test of writeCharacter method, of class XmlWriter.
+     * Test of writeCharacter method, of class PersonageXmlWriter.
      */
     @Test
     public void writeCharacter() throws XmlWriterException {
@@ -131,13 +131,13 @@ public class XmlWriterTest {
         
         Personage character = getCharacter();
         Element father = null;
-        XmlWriter instance = new XmlWriter(basePath+"character.xml");
+        PersonageXmlWriter instance = new PersonageXmlWriter(basePath+"character.xml");
         instance.writeCharacter(character, father);
     }
 
 
     /**
-     * Test of fileWrite method, of class XmlWriter.
+     * Test of fileWrite method, of class PersonageXmlWriter.
      */
     @Test
     public void fileWrite() {
@@ -147,10 +147,10 @@ public class XmlWriterTest {
 
         Personage character = getCharacter();
         Element father = null;
-        XmlWriter instance;
+        PersonageXmlWriter instance;
         
         try {
-            instance = new XmlWriter(basePath + "character.xml");
+            instance = new PersonageXmlWriter(basePath + "character.xml");
             instance.writeCharacter(character, father);
             instance.fileWrite();
 
@@ -163,7 +163,7 @@ public class XmlWriterTest {
 
         for (Trait trait : traits) {
             try {
-                instance = new XmlWriter(basePath + "trait_" + trait.getName() + ".xml");
+                instance = new PersonageXmlWriter(basePath + "trait_" + trait.getName() + ".xml");
                 System.out.println("Writing trait " + trait + " to file " + basePath + "trait_" + trait.getName() + ".xml");
                 instance.writeTrait(trait, null);
             } catch (XmlWriterException ex) {

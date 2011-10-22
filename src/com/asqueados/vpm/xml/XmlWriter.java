@@ -1,7 +1,7 @@
 /*
  * XmlWriter.java
  * 
- * Copyright (c) 2010 Pablo J. Urbano Santos <flamma at member.fsf.org>. 
+ * Copyright (c) 2011 Pablo J. Urbano Santos <flamma at member.fsf.org>. 
  * 
  * This file is part of vpm.
  * 
@@ -30,20 +30,17 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
-import com.asqueados.vpm.entities.Personage;
-import com.asqueados.vpm.entities.Trait;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
+
 /**
  *
  * @author Pablo J. Urbano Santos <flamma at member.fsf.org>
  */
 public class XmlWriter {
-    private Document doc;
+    Document doc;
     private String pathName;
     
     public XmlWriter(String pathName) throws XmlWriterException {
@@ -58,10 +55,10 @@ public class XmlWriter {
                 doc = docBuilder.newDocument();
                 out = new FileOutputStream(pathName);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(XmlWriter.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PersonageXmlWriter.class.getName()).log(Level.SEVERE, null, ex);
                 throw new XmlWriterException("Unable to create destination file", ex);
             } catch (ParserConfigurationException ex) {
-                Logger.getLogger(XmlWriter.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PersonageXmlWriter.class.getName()).log(Level.SEVERE, null, ex);
                 throw new XmlWriterException("Unable to create DOM parser", ex);
             }
 
@@ -69,58 +66,12 @@ public class XmlWriter {
                 try {
                     out.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(XmlWriter.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PersonageXmlWriter.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
         
     }
-    
-    public void writeCharacter(Personage character, Element father){
-        if(father == null){
-            father = doc.getDocumentElement();
-        }
-            
-        
-        Element charElement = doc.createElement("character");
-        
-        charElement.setAttribute("id", character.getId() );
-        
-        for( Trait trait: character.getTraits() ){
-            writeTrait(trait, charElement);
-        }
-        
-
-        if (father == null)
-            doc.appendChild(charElement);
-        else 
-            father.appendChild(charElement);
-        
-    }
-    
-    public void writeTrait(Trait trait, Element father) {
-        if(father == null){
-            father = doc.getDocumentElement();
-        }
-        
-        Element traitElement = doc.createElement("trait");
-        
-        traitElement.setAttribute("name", trait.getName());
-        traitElement.setAttribute("type", trait.getType());
-        traitElement.setAttribute("value", translateValue(trait.getType(), 
-                trait.getValue()));
-        
-        if (trait.getCost() != null){
-            traitElement.setAttribute("cost", trait.getCost().toString());
-        }
-
-        if (father == null)
-            doc.appendChild(traitElement);
-        else         
-            father.appendChild(traitElement);
-        
-    }
-    
     public void fileWrite(){
         
         FileOutputStream out = null;
@@ -134,14 +85,14 @@ public class XmlWriter {
             serializer.serialize(doc);
             
         } catch (IOException ex) {
-            Logger.getLogger(XmlWriter.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(PersonageXmlWriter.class.getName()).log(Level.SEVERE,
                     "File can not be created. This should never happen", ex);
 
         } finally {
             try {
                 out.close();
             } catch (IOException ex) {
-                Logger.getLogger(XmlWriter.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PersonageXmlWriter.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

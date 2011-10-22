@@ -21,36 +21,17 @@
 
 package com.asqueados.vpm.configuration;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Pablo J. Urbano Santos <flamma at member.fsf.org>
  */
-public class Configuration {
-    private static Map<String, String> cache = new HashMap<String, String>();
-    private static String propFile = "data.properties";
-    
-    public static String getOption(String name) {
-        String value = cache.get(name);
-        
-        if(value==null) {
-            try {
-                Properties properties = new Properties();
-                properties.load(new FileInputStream(propFile));
-                value = properties.getProperty(name);
-            } catch (IOException ex) {
-                Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return value;
-    }
+public interface Configuration {
+    /**
+     * Get the configuration option
+     * 
+     * @param name name of the option
+     * @return value for that configuration
+     */
+    public String getOption(String name);
 
 }
