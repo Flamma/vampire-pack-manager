@@ -1,0 +1,25 @@
+CHARACTER STATS
+physique
+social
+mental
+
+combat
+stealth
+influence
+leadership
+finances
+awareness
+investigation
+seduction ?
+
+STATUS
+vampire
+undead
+dead
+animal
+damage
+morale
+blood
+sex
+
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<character>
+        <trait name="name" type="string" value="Template"/>
+
+        <!-- Attributes -->
+        <trait name="physique" type="integer" value="1"/>
+        <trait name="social" type="integer" value="1" />
+        <trait name="mental" type="integer" value="1" />
+
+        <!-- Skills -->
+
+        <!-- Status -->
+
+
+</character>
+

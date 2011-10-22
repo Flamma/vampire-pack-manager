@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetypes>
+    <archetype id="ganger">
+        <trait name="physique" type="integer" value="2" />
+        <trait name="combat" type="integer" value="2" />
+        <trait name="stealth" type="integer" value="3" />
+    </archetype>
+    <archetype id="politician">
+        <trait name="social" type="integer" value="2" />
+        <trait name="mental" type="integer" value="1" />
+        <trait name="leadership" type="integer" value="1" />
+        <trait name="influence" type="integer" value="1" />
+    </archetype>
+
+</archetypes>

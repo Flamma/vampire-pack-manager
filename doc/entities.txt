@@ -1,0 +1,44 @@
+ENTITIES
+
+pack
+characters
+traits
+tasks
+time
+terrain
+territory
+poi
+xp
+
+
+PACK
+
+Character findCharacter(String traitName, Object value)
+//Object getValue(Trait trait)
+Character[] getCharacters()
+
+
+CHARACTER
+void setTrait(Trait trait)
+Object getValue(Trait trait)
+void setValue(String traitName)
+Task getTask() ??
+String getId()
+
+TRAIT
+String getType()
+Object getValue() ???
+Integer getCost()
+String getName()
+
+
+EVENT (interface)
+Object execute()
+
+
+TASK implements EVENT
+(abstract)
++ characters
++ time
+Object execute()
+
