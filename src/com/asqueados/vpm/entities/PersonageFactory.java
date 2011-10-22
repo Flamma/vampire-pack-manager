@@ -22,7 +22,6 @@
 package com.asqueados.vpm.entities;
 
 import com.asqueados.vpm.app.Application;
-import com.asqueados.vpm.configuration.PropertiesConfiguration;
 import com.asqueados.vpm.exceptions.UnableToCreateArchetypeException;
 import com.asqueados.vpm.exceptions.UnableToCreatePersonageException;
 import com.asqueados.vpm.view.TraitTypes;
@@ -125,13 +124,22 @@ public class PersonageFactory {
             
             // Special traits
             // Roll sex
-            Trait trait = character.getTrait("sex");
-            if(trait == null) {
+            Trait sexTrait = character.getTrait("sex");
+            if(sexTrait == null) {
                 Random roller = new Random();
                 int rolled = roller.nextInt(2);
-                trait = new Trait("sex", Trait.STRING, rolled==0?"female":"male");
+                sexTrait = new Trait("sex", Trait.STRING, rolled==0?"female":"male");
                 
-                character.setTrait(trait);
+                character.setTrait(sexTrait);
+            }
+            
+            Trait nameTrait = character.getTrait("name");
+            if(nameTrait == null) {
+                String sex = (String) sexTrait.getValue();
+                String name = Application.nameGenerator.generate(sex);
+                nameTrait = new Trait("name", Trait.STRING, name);
+                
+                character.setTrait(nameTrait);
             }
             
             return character;
