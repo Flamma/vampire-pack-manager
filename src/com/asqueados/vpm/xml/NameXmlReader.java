@@ -33,17 +33,24 @@ public class NameXmlReader extends XmlReader{
     public NameXmlReader(String pathName) throws XmlReaderException {
         super(pathName);
     }
-    
     public List<String> getNames() {
+        return getNames(null);
+    }
+    public List<String> getNames(String sex) {
         List<String> names = new ArrayList<String>();
         NodeList nodes = doc.getElementsByTagName("name");
         
         for(int i=0; i<nodes.getLength(); i++){
             Element element = (Element) nodes.item(i);
-            String name = element.getTextContent();
             
-            if( name != null && name.length() > 0 )
-                names.add(name);
+            if( sex==null || element.getAttribute("sex")==null || 
+                    element.getAttribute("sex").equals(sex) ) {
+                
+                String name = element.getTextContent();
+
+                if( name != null && name.length() > 0 )
+                    names.add(name);
+            }
         }
 
         
