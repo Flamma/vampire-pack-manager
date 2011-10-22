@@ -23,12 +23,13 @@ package com.asqueados.vpm.app;
 
 import com.asqueados.vpm.configuration.Configuration;
 import com.asqueados.vpm.configuration.ConfigurationFactory;
-import com.asqueados.vpm.configuration.PropertiesConfiguration;
 import com.asqueados.vpm.view.color.ColorDescriptor;
 import com.asqueados.vpm.view.color.ColorDescriptorFactory;
 import com.asqueados.vpm.view.i18n.Translator;
 import com.asqueados.vpm.view.i18n.TranslatorFactory;
 import com.asqueados.vpm.view.text.Descriptor;
+import com.asqueados.vpm.view.text.NameGenerator;
+import com.asqueados.vpm.view.text.NameGeneratorFactory;
 
 /**
  * Application class is responsible of running the application, or running tests
@@ -42,6 +43,7 @@ public class Application {
     public static Translator translator;
     public static Descriptor text;
     public static ColorDescriptor color;
+    public static NameGenerator nameGenerator;
     
     public static void init() {
         translator = TranslatorFactory.getTranslator();
@@ -51,6 +53,8 @@ public class Application {
                 configuration.getOption("dataConfig"),
                 configuration.getOption("dataConfigType")
         );
+        nameGenerator = NameGeneratorFactory.createNameGenerator( null, 
+                dataConfiguration.getOption("nameGenerator"));
 
     }
     
