@@ -1,0 +1,11 @@
+com.asqueados.vpm.app
+com.asqueados.vpm.configuration
+com.asqueados.vpm.entities
+com.asqueados.vpm.exceptions
+com.asqueados.vpm.scheduler
+com.asqueados.vpm.tests
+com.asqueados.vpm.view
+com.asqueados.vpm.view.color
+com.asqueados.vpm.view.i18n
+com.asqueados.vpm.view.text
+com.asqueados.vpm.xml
