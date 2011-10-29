@@ -7,5 +7,6 @@ com.asqueados.vpm.tests
 com.asqueados.vpm.view
 com.asqueados.vpm.view.color
 com.asqueados.vpm.view.i18n
+com.asqueados.vpm.view.swing
 com.asqueados.vpm.view.text
 com.asqueados.vpm.xml
