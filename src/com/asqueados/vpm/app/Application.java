@@ -21,6 +21,7 @@
 
 package com.asqueados.vpm.app;
 
+import com.asqueados.vpm.view.text.DescriptorFactory;
 import com.asqueados.vpm.configuration.Configuration;
 import com.asqueados.vpm.configuration.ConfigurationFactory;
 import com.asqueados.vpm.view.color.ColorDescriptor;
@@ -50,6 +51,9 @@ public class Application {
     public static void init(String configFile) {
         configuration = ConfigurationFactory.createConfiguration(configFile);        
         translator = TranslatorFactory.getTranslator();
+        textDescriptor = DescriptorFactory.createDescriptor(
+                configuration.getOption("textDescriptor")
+                ); 
         color = ColorDescriptorFactory.getColorDescriptor();
         dataConfiguration = ConfigurationFactory.createConfiguration(
                 configuration.getOption("dataConfig"),
@@ -57,7 +61,6 @@ public class Application {
         );
         nameGenerator = NameGeneratorFactory.createNameGenerator( null, 
                 dataConfiguration.getOption("nameGenerator"));
-        textDescriptor = new PlainDescriptor(); // TODO: write a factory and use it
 
     }
     
