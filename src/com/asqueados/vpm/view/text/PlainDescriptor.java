@@ -122,10 +122,9 @@ public class PlainDescriptor implements Descriptor {
         
         return new String(description);
     }
-
-    public String getPersonageDescription(Personage personage) {
+    
+    public String getPersonageIntroDescription(Personage personage) {
         StringBuffer description=new StringBuffer();
-        
         // FIXME: No i18n
         description.append(personage.getTrait("name").getValue());
         description.append(" is a ");
@@ -140,6 +139,14 @@ public class PlainDescriptor implements Descriptor {
         description.append(getRaceDescription(personage));
         description.append("."+nl());
         
+        return new String(description);
+
+    }
+    
+    public String getPersonageSkillsDescription(Personage personage) {
+        StringBuffer description=new StringBuffer();
+
+        // TODO: i18n
         description.append(nl()+"SKILLS:"+nl());
         List<String> skillsNames= TraitTypes.getSkillsNames();
         for(String name: skillsNames) {
@@ -154,6 +161,15 @@ public class PlainDescriptor implements Descriptor {
             }
             
         }
+        
+        return new String(description);        
+    }
+
+    public String getPersonageDescription(Personage personage) {
+        StringBuffer description=new StringBuffer();
+        
+        description.append(getPersonageIntroDescription(personage));
+        description.append(getPersonageSkillsDescription(personage));
                 
         return new String(description);
     }

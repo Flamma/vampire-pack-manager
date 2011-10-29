@@ -54,6 +54,20 @@ public interface Descriptor {
      */    
     public String getPersonageAttributesDescription(Personage character);
     /**
+     * Returns an introduction to the character
+     * 
+     * @param personage
+     * @return an introduction to the character
+     */    
+    public String getPersonageIntroDescription(Personage character);
+    /**
+     * Returns a description of the skills of a character
+     * 
+     * @param personage
+     * @return a description of the skills of a character
+     */    
+    public String getPersonageSkillsDescription(Personage character);
+    /**
      * Returns full description of a character
      * 
      * @param personage
