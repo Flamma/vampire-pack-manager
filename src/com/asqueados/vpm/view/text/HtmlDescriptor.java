@@ -23,6 +23,7 @@ package com.asqueados.vpm.view.text;
 
 import com.asqueados.vpm.app.Application;
 import com.asqueados.vpm.entities.Personage;
+import com.asqueados.vpm.entities.Trait;
 import com.asqueados.vpm.view.TraitTypes;
 import java.awt.Color;
 import java.util.List;
@@ -60,6 +61,30 @@ public class HtmlDescriptor extends PlainDescriptor {
         }
         
         return new String(description);
+    }
+    
+    @Override
+    public String getTraitValueDescription(Trait trait) {
+        String htmlDescription;
+        String plainDescription = super.getTraitValueDescription(trait);
+        
+        if(plainDescription == null) {
+            htmlDescription = null;
+        } else {
+            Color color = Application.getColor().getTraitValueColor(trait);
+            if (color==null) {
+                htmlDescription = plainDescription;
+            } else {
+                String htmlColor = getTraitValueColorHTML(color);
+                htmlDescription = 
+                        "<span style='color:"+htmlColor+"'>" +
+                        plainDescription +
+                        "</span>";
+            }
+        }
+        
+        return htmlDescription;
+
     }
     
     @Override

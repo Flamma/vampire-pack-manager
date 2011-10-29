@@ -39,7 +39,7 @@ public class PlainDescriptor implements Descriptor {
      * FIXME: This function is a stub. Should be written more seriously when things are more definitive
      * 
      * @param trait
-     * @return a text description of the value of the trait.
+     * @return a text description of the value of the trait. Null if trait is null
      */
     public String getTraitValueDescription(Trait trait) {
         String description=null;
