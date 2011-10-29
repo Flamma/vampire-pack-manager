@@ -30,6 +30,7 @@ import com.asqueados.vpm.view.i18n.TranslatorFactory;
 import com.asqueados.vpm.view.text.Descriptor;
 import com.asqueados.vpm.view.text.NameGenerator;
 import com.asqueados.vpm.view.text.NameGeneratorFactory;
+import com.asqueados.vpm.view.text.PlainDescriptor;
 
 /**
  * Application class is responsible of running the application, or running tests
@@ -56,6 +57,7 @@ public class Application {
         );
         nameGenerator = NameGeneratorFactory.createNameGenerator( null, 
                 dataConfiguration.getOption("nameGenerator"));
+        textDescriptor = new PlainDescriptor(); // TODO: write a factory and use it
 
     }
     
