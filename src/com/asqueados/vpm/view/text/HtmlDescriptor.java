@@ -50,7 +50,7 @@ public class HtmlDescriptor extends PlainDescriptor {
             if(adjective != null) {
                 if(description.length() > 0)
                     description.append(", ");
-                Color color = Application.color.getTraitValueColor(character.getTrait(name));
+                Color color = Application.getColor().getTraitValueColor(character.getTrait(name));
                 if ( color != null )
                     description.append("<span style='color:"+getTraitValueColorHTML(color)+"'>");
                 description.append(adjective);

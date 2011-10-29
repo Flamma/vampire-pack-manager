@@ -66,7 +66,7 @@ public class PersonageViewer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().add(personagePanel, java.awt.BorderLayout.CENTER);
 
-        randomButton.setText(Application.translator.translate("randomCharacter")); // NOI18N
+        randomButton.setText(Application.getTranslator().translate("randomCharacter")); // NOI18N
         randomButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 randomButtonActionPerformed(evt);

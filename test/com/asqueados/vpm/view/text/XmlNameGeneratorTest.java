@@ -69,7 +69,7 @@ public class XmlNameGeneratorTest {
         System.out.println("generate");
         
         String result=null;
-        XmlNameGenerator instance = new XmlNameGenerator(Application.dataConfiguration.getOption("nameGenerator"));
+        XmlNameGenerator instance = new XmlNameGenerator(Application.getDataConfiguration().getOption("nameGenerator"));
 
         String sex = "male";        
         result = instance.generate(sex);

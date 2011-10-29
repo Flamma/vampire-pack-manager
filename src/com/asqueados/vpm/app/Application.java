@@ -38,17 +38,18 @@ import com.asqueados.vpm.view.text.NameGeneratorFactory;
  * @author Pablo J. Urbano Santos <flamma at member.fsf.org>
  */
 public class Application {
-    public static Configuration configuration;
-    public static Configuration dataConfiguration;
-    public static Translator translator;
-    public static Descriptor text;
-    public static ColorDescriptor color;
-    public static NameGenerator nameGenerator;
+    private static final String defaultConfigFile="config.properties";
+    private static Configuration configuration;
+    private static Configuration dataConfiguration;
+    private static Translator translator;
+    private static Descriptor textDescriptor;
+    private static ColorDescriptor color;
+    private static NameGenerator nameGenerator;
     
-    public static void init() {
+    public static void init(String configFile) {
+        configuration = ConfigurationFactory.createConfiguration(configFile);        
         translator = TranslatorFactory.getTranslator();
         color = ColorDescriptorFactory.getColorDescriptor();
-        configuration = ConfigurationFactory.createConfiguration("config.properties");
         dataConfiguration = ConfigurationFactory.createConfiguration(
                 configuration.getOption("dataConfig"),
                 configuration.getOption("dataConfigType")
@@ -57,6 +58,42 @@ public class Application {
                 dataConfiguration.getOption("nameGenerator"));
 
     }
+    
+    public static void init() {        
+        init(defaultConfigFile);
+    }
+
+    public static ColorDescriptor getColor() {
+        if (color==null) init();
+        return color;
+    }
+
+    public static Configuration getConfiguration() {
+        if (configuration==null) init();
+        return configuration;
+    }
+
+    public static Configuration getDataConfiguration() {
+        if (dataConfiguration==null) init();
+        return dataConfiguration;
+    }
+
+    public static NameGenerator getNameGenerator() {
+        if (nameGenerator==null) init();
+        return nameGenerator;
+    }
+
+    public static Descriptor getTextDescriptor() {
+        if (textDescriptor==null) init();
+        return textDescriptor;
+    }
+
+    public static Translator getTranslator() {
+        if (translator==null) init();
+        return translator;
+    }
+    
+    
     
     public static void main(String args[]) {
         init();

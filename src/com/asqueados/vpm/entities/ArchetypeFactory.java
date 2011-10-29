@@ -38,7 +38,7 @@ public class ArchetypeFactory {
     private static String archetypesFile;
 
     private static void loadProperties() {
-        archetypesFile = Application.dataConfiguration.getOption("archetypesFile");
+        archetypesFile = Application.getDataConfiguration().getOption("archetypesFile");
     }
     
     private static String getArchetypesFile() {

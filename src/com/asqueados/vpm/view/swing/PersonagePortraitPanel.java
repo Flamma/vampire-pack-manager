@@ -42,7 +42,7 @@ public class PersonagePortraitPanel extends javax.swing.JPanel {
             Trait porTrait = character.getTrait("portrait");
             if( porTrait != null) {
                 try {
-                    String portraitsDir = Application.dataConfiguration.getOption("portraitsDir");
+                    String portraitsDir = Application.getDataConfiguration().getOption("portraitsDir");
                     portraitPath =  portraitsDir +"/"+ porTrait.getValue() +".png";
                     BufferedImage portrait = ImageIO.read(new File(portraitPath));
                     portraitLabel.setIcon(new ImageIcon(portrait));
@@ -87,12 +87,12 @@ public class PersonagePortraitPanel extends javax.swing.JPanel {
         String path=null;
         
         if ( sex != null && sex.equals("female") ) {
-            path = Application.dataConfiguration.getOption("f_defaultPortrait");
+            path = Application.getDataConfiguration().getOption("f_defaultPortrait");
         }
         
         // If still null, that is, no female portrait or option is not set
         if ( path == null) {
-            path = Application.dataConfiguration.getOption("defaultPortrait");
+            path = Application.getDataConfiguration().getOption("defaultPortrait");
         }
         
         return path;

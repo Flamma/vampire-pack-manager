@@ -50,33 +50,33 @@ public class PlainDescriptor implements Descriptor {
             description = getTranslation((String)trait.getValue());
         } else if (trait.getName().equals("physique") ){            
             if ( (Integer)trait.getValue() < 5)
-                description = Application.translator.translate("weak");
+                description = Application.getTranslator().translate("weak");
             else if ((Integer)trait.getValue() > 7 && (Integer)trait.getValue() < 10)
-                description = Application.translator.translate("strong");
+                description = Application.getTranslator().translate("strong");
             else if  ( (Integer)trait.getValue() >= 10)
-                description = Application.translator.translate("formidable");
+                description = Application.getTranslator().translate("formidable");
         } else if (trait.getName().equals("social") ){            
             if ( (Integer)trait.getValue() < 5)
-                description = Application.translator.translate("shy");
+                description = Application.getTranslator().translate("shy");
             else if (((Integer)trait.getValue() > 7 && (Integer)trait.getValue() < 10))
-                description = Application.translator.translate("charismatic");
+                description = Application.getTranslator().translate("charismatic");
             else if  ( (Integer)trait.getValue() >= 10)
-                description = Application.translator.translate("magnetic");
+                description = Application.getTranslator().translate("magnetic");
         } else if (trait.getName().equals("mental") ){
             if ( (Integer)trait.getValue() < 5)
-                description = Application.translator.translate("dumb");
+                description = Application.getTranslator().translate("dumb");
             else if (((Integer)trait.getValue() > 7 && (Integer)trait.getValue() < 10))
-                description = Application.translator.translate("smart");
+                description = Application.getTranslator().translate("smart");
             else if  ( (Integer)trait.getValue() >= 10) 
-                description = Application.translator.translate("genius");
+                description = Application.getTranslator().translate("genius");
         } else {
             if ( trait.getType().equals(Trait.INTEGER) ) {
                 if ( (Integer)trait.getValue() > 0 && (Integer)trait.getValue() < 5)
-                    description = Application.translator.translate("novice");
+                    description = Application.getTranslator().translate("novice");
                 else if ((Integer)trait.getValue() >= 5 && (Integer)trait.getValue() < 10)
-                    description = Application.translator.translate("good");
+                    description = Application.getTranslator().translate("good");
                 else if  ( (Integer)trait.getValue() >= 10)
-                    description = Application.translator.translate("superb");
+                    description = Application.getTranslator().translate("superb");
             }
         }
    
@@ -94,9 +94,9 @@ public class PlainDescriptor implements Descriptor {
     public String getRaceDescription(Personage personage) {
         Trait vtrait = personage.getTrait("vampire"); 
         if( vtrait!=null && (Boolean) vtrait.getValue() )
-            return Application.translator.translate("vampire");
+            return Application.getTranslator().translate("vampire");
         else
-            return Application.translator.translate("human");
+            return Application.getTranslator().translate("human");
     }
     /**
      * Returns a description of the attributes of a character
@@ -146,7 +146,7 @@ public class PlainDescriptor implements Descriptor {
             Trait trait = personage.getTrait(name);
             
             if( trait != null ) {
-                String traitName = Application.translator.translate(name);
+                String traitName = Application.getTranslator().translate(name);
                 String traitDescription = getTraitValueDescription(trait);
                 
                 if(traitDescription != null)
@@ -169,7 +169,7 @@ public class PlainDescriptor implements Descriptor {
     
 
     private static String getTranslation(String string) {
-        return Application.translator.translate(string);
+        return Application.getTranslator().translate(string);
     }
     
 }

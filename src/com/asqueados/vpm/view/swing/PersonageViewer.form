@@ -62,7 +62,7 @@
         <Component class="javax.swing.JButton" name="randomButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/asqueados/vpm/view/i18n/locale.properties" key="randomCharacter" replaceFormat="Application.translator.translate(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/asqueados/vpm/view/i18n/locale.properties" key="randomCharacter" replaceFormat="Application.getTranslator().translate(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>

@@ -42,8 +42,8 @@ public class PersonageFactory {
     private static String templatesPath;
     
     private static void loadProperties(){
-        defaultTemplateFile = Application.dataConfiguration.getOption("defaultCharacterTemplate");
-        templatesPath = Application.dataConfiguration.getOption("templatesPath");
+        defaultTemplateFile = Application.getDataConfiguration().getOption("defaultCharacterTemplate");
+        templatesPath = Application.getDataConfiguration().getOption("templatesPath");
     }
     
     private static String getDefaultTemplateFile() {
@@ -136,7 +136,7 @@ public class PersonageFactory {
             Trait nameTrait = character.getTrait("name");
             if(nameTrait == null) {
                 String sex = (String) sexTrait.getValue();
-                String name = Application.nameGenerator.generate(sex);
+                String name = Application.getNameGenerator().generate(sex);
                 nameTrait = new Trait("name", Trait.STRING, name);
                 
                 character.setTrait(nameTrait);
