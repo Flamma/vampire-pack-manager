@@ -41,10 +41,12 @@ import com.asqueados.vpm.view.text.PlainDescriptor;
  */
 public class Application {
     private static final String defaultConfigFile="config.properties";
+    private static final String defaultHtmlDescriptor = "html";
     private static Configuration configuration;
     private static Configuration dataConfiguration;
     private static Translator translator;
     private static Descriptor textDescriptor;
+    private static Descriptor htmlDescriptor;
     private static ColorDescriptor color;
     private static NameGenerator nameGenerator;
     
@@ -54,6 +56,11 @@ public class Application {
         textDescriptor = DescriptorFactory.createDescriptor(
                 configuration.getOption("textDescriptor")
                 ); 
+
+        String htmlType = configuration.getOption("htmlDescriptor");
+        if(htmlType == null) htmlType = defaultHtmlDescriptor;
+        htmlDescriptor = DescriptorFactory.createDescriptor(htmlType);
+
         color = ColorDescriptorFactory.getColorDescriptor();
         dataConfiguration = ConfigurationFactory.createConfiguration(
                 configuration.getOption("dataConfig"),
@@ -91,6 +98,11 @@ public class Application {
     public static Descriptor getTextDescriptor() {
         if (textDescriptor==null) init();
         return textDescriptor;
+    }
+
+    public static Descriptor getHtmlDescriptor() {
+        if (htmlDescriptor==null) init();
+        return htmlDescriptor;
     }
 
     public static Translator getTranslator() {
