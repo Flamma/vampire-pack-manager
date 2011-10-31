@@ -27,7 +27,6 @@ public class PersonageAttributesPanel extends javax.swing.JPanel {
         if(character!=null) {
             Descriptor descriptor = new HtmlDescriptor();
             String description = descriptor.getPersonageDescription(character);
-            System.err.println(description);
             descriptionLabel.setText("<html>"+description+"</html>");
         }
     }
