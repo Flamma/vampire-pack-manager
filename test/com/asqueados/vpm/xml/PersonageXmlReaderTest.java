@@ -1,5 +1,5 @@
 /*
- * XmlReaderTest.java
+ * PersonageXmlReaderTest.java
  * 
  * Copyright (c) 2011 Pablo J. Urbano Santos <flamma at member.fsf.org>. 
  * 
@@ -35,11 +35,11 @@ import static org.junit.Assert.*;
  *
  * @author Pablo J. Urbano Santos <flamma at member.fsf.org>
  */
-public class XmlReaderTest {
+public class PersonageXmlReaderTest {
 
-    private static final String characterPath="data/chars/sample.xml";
+    private static final String characterPath="data/chars/charSample.xml";
     private static final String archetypesPath="data/templates/archetypes.xml";
-    public XmlReaderTest() {
+    public PersonageXmlReaderTest() {
     }
     
     private String getIntro() {
