@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pack>
+    <characters>
+        <character>
+	        <trait name="name" type="string" value="Eva Santillana"/>
+	        <trait name="sex" type="string" value="female" />
+	        <trait name="portrait" type="string" value="eva" />
+	
+	        <!-- Attributes -->
+	        <trait name="physique" type="integer" value="2"/>
+	        <trait name="social" type="integer" value="8" />
+	        <trait name="mental" type="integer" value="6" />
+	
+	        <!-- Skills -->
+            <trait name="combat" type="integer" value="2" /> 
+            <trait name="stealth" type="integer" value="0" /> 
+            <trait name="influence" type="integer" value="8" /> 
+            <trait name="leadership" type="integer" value="5" /> 
+            <trait name="finances" type="integer" value="3" /> 
+            <trait name="awareness" type="integer" value="0" /> 
+            <trait name="investigation" type="integer" value="0" /> 
+	
+	        <!-- Status -->
+	        <trait name="blood" type="integer" value="5"/>
+	        <trait name="bloodpool" type="integer" value="15"/>
+	        <trait name="vampire" type="boolean" value="true"/>
+        </character>
+        <character>
+	        <trait name="name" type="string" value="Asesino"/>
+	        <trait name="sex" type="string" value="male" />
+	        <trait name="portrait" type="string" value="asesino" />
+	
+	        <!-- Attributes -->
+	        <trait name="physique" type="integer" value="8"/>
+	        <trait name="social" type="integer" value="1" />
+	        <trait name="mental" type="integer" value="2" />
+	
+	        <!-- Skills -->
+            <trait name="combat" type="integer" value="5" /> 
+            <trait name="awareness" type="integer" value="3" /> 
+	
+	        <!-- Status -->
+	        <trait name="blood" type="integer" value="5"/>
+	        <trait name="bloodpool" type="integer" value="15"/>
+	        <trait name="vampire" type="boolean" value="true"/>
+        </character>
+    </characters>
+    <traits>
+        <trait name="name" type="string" value="11 de Agosto"/>
+        <trait name="control" type="string" value="player"/>
+    </traits>
+</pack>
