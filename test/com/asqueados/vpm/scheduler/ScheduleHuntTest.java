@@ -82,7 +82,7 @@ public class ScheduleHuntTest {
         Logger.getLogger(getClass().getName()).setLevel(Level.FINE);
         Scheduler scheduler = new Scheduler();
         
-        String path = "data/chars/sample.xml";
+        String path = "data/chars/charSample.xml";
 
         PersonageXmlReader reader = new PersonageXmlReader(path);
 

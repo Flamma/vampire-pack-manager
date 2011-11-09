@@ -58,7 +58,7 @@ public class HuntTest {
     /**
      * A test for tasks normal behaviour
      * 
-     * Open data/chars/sample.xml character
+     * Open data/chars/charSample.xml character
      * Assign character to task
      * Do task
      * Save modified character to output/chars/out.xml
@@ -70,7 +70,7 @@ public class HuntTest {
         System.out.println("TEST Hunt");        
         System.out.println("hunt");        
         
-        String path = "data/chars/sample.xml";
+        String path = "data/chars/charSample.xml";
 
         PersonageXmlReader reader = new PersonageXmlReader(path);
         assertNotNull(reader);

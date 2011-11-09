@@ -72,7 +72,7 @@ public class PlainDescriptorTest {
     }
     
     private Personage getPersonage() throws XmlReaderException {
-        String path = "data/chars/sample.xml";
+        String path = "data/chars/charSample.xml";
         PersonageXmlReader reader = new PersonageXmlReader(path);
         Personage character = reader.readCharacter();
         
