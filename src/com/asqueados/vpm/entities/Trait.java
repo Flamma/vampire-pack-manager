@@ -128,6 +128,48 @@ public class Trait {
         }
     }
     
+    /**
+     * Check if the object matches with the objective
+     * 
+     * If strict is false and traits are numeric, they will match if the object 
+     * value is greater or equal to the objective value.
+     * 
+     * Otherwise, they will match if they are identical.
+     * 
+     * @param objective objective to be matched
+     * @param strict if true, both traits values must be identical. Otherwise, object value can be greater.
+     * 
+     * @return true if object matches the objective
+     */    
+    public boolean match(Trait trait, boolean strict) {
+        // If name are different, traits don't match
+        if(!getName().equals(trait.getName())) 
+                return false;
+        // If types are of different type (which should never happen), traits don't match
+        if(!type.equals(trait.getType()))
+            return false;
+        
+        if(strict==false && type.equals(INTEGER))
+            return ( (Integer) value >= (Integer)trait.getValue() );
+        else
+            return value.equals(trait.getValue());
+    }
+    
+    /**
+     * Check if the object matches with the objective
+     * 
+     * If traits are numeric, they will match if the object value is greater or
+     * equal to the objective value.
+     * 
+     * Otherwise, they will match if they are identical.
+     * 
+     * @param objective objective to be matched
+     * @return true if object matches the objective
+     */
+    public boolean match(Trait objective) {
+        return match(objective, false);
+    }
+    
     // Object Overrides
     @Override
     public String toString(){

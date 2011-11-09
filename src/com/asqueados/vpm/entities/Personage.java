@@ -23,6 +23,7 @@ package com.asqueados.vpm.entities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -180,6 +181,45 @@ public class Personage {
             
             traits.put(traitName, trait);
         }
+    }
+    
+    /**
+     * Check if character matches the target traits
+     * 
+     * For each target, look for a character trait that matches it.
+     * 
+     * @param targets list of traits to be matched
+     * @param strict strict if true, traits values must be identical. Otherwise, character values can be greater.
+     * @return true if character meets the requirements
+     */
+    public boolean match(List<Trait> targets, boolean strict) {
+        boolean match = true;
+        
+        Iterator<Trait> i = targets.iterator();
+        while(match && i.hasNext()) {
+            Trait target = i.next();
+            
+            Trait myTrait = getTrait(target.getName());
+            
+            if(myTrait == null)
+                match = false;
+            else
+                match = myTrait.match(target, strict);
+        }
+        
+        return match;
+        
+    }
+    /**
+     * Check if character matches the target traits
+     * 
+     * For each target, look for a character trait that matches it.
+     * 
+     * @param targets list of traits to be matched
+     * @return true if character meets the requirements
+     */
+    public boolean match(List<Trait> targets) {
+        return match(targets, false);
     }
     
     // Object Overrides
