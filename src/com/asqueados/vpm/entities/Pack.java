@@ -119,6 +119,13 @@ public class Pack {
     }
     
     /**
+     * @return List with all the characters of the pack
+     */
+    public List<Personage> getCharacters() {
+        return new ArrayList<Personage>(characters.values());
+    }
+    
+    /**
      * Get a list of characters matching the targets
      * 
      * @param targets list of traits to be matched
@@ -139,6 +146,19 @@ public class Pack {
      */
     public void setTrait(Trait trait){
         traits.put(trait.getName(), trait);
+    }
+    
+    /**
+     * Set each trait of the list
+     * 
+     * Do not remove other traits
+     * 
+     * @param traits
+     */
+    public void setTraits(List<Trait> traits) {
+        for (Trait trait: traits) {
+            setTrait(trait);
+        }
     }
     
     public List<Trait> getTraits() {
