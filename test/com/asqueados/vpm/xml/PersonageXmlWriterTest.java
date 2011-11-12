@@ -1,5 +1,5 @@
 /*
- * XmlWriterTest.java
+ * PersonageXmlWriterTest.java
  * 
  * Copyright (c) 2011 Pablo J. Urbano Santos <flamma at member.fsf.org>. 
  * 
@@ -39,14 +39,14 @@ import org.w3c.dom.Element;
  *
  * @author Pablo J. Urbano Santos <flamma at member.fsf.org>
  */
-public class XmlWriterTest {
+public class PersonageXmlWriterTest {
     private final String basePath = "output/test/";
     
-    public XmlWriterTest() {
+    public PersonageXmlWriterTest() {
     }
     
     private String getIntro() {
-        return "TEST XmlWriter";
+        return "TEST " + PersonageXmlWriter.class.getName();
     }
 
     private List<Trait> getTraits() {
@@ -156,7 +156,7 @@ public class XmlWriterTest {
 
 
         } catch (XmlWriterException ex) {
-            Logger.getLogger(XmlWriterTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PersonageXmlWriterTest.class.getName()).log(Level.SEVERE, null, ex);
             fail(ex.getMessage());
         }
         List<Trait> traits = getTraits();
@@ -167,7 +167,7 @@ public class XmlWriterTest {
                 System.out.println("Writing trait " + trait + " to file " + basePath + "trait_" + trait.getName() + ".xml");
                 instance.writeTrait(trait, null);
             } catch (XmlWriterException ex) {
-                Logger.getLogger(XmlWriterTest.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PersonageXmlWriterTest.class.getName()).log(Level.SEVERE, null, ex);
                 fail(ex.getMessage());
             }
 
