@@ -48,7 +48,7 @@ public class PersonagePortraitPanel extends javax.swing.JPanel {
                     portraitLabel.setIcon(new ImageIcon(portrait));
                     setted=true;
                 } catch (IOException ex) {
-                    Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Cannot find portrait "+portraitPath, ex);
+                    Logger.getLogger(getClass().getName()).log(Level.WARNING, "Cannot find portrait "+portraitPath);
                 }
             } 
             // if not portrait is set or if portrait was not found
